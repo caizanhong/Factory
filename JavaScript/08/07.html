@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        <script>
+            //构造方法，类，函数
+            function Foo(name) {
+                this.name = name;
+            }
+
+            var f1 = new Foo("zhangguo");
+
+            console.log(f1.constructor === Foo); //true
+            console.log(f1.__proto__ === Foo.prototype); //true
+
+            /*1、字面量方式*/
+            var a = {};
+            //a的__proto__是指向了a的构造器所指向的原型
+            //字面量创建的对象的__proto__指向了Object的原型
+            console.log(a.__proto__ === a.constructor.prototype); //true
+
+            /*2、构造器方式*/
+            var A = function() {};
+
+            var a = new A();
+
+            console.log(a.__proto__); //A的原型
+
+            console.log(a.__proto__ === a.constructor.prototype); //true
+            console.log(a.__proto__ === A.prototype); //true
+
+            /*3、Object.create()方式*/
+            var a1 = {a: 1}
+            var a2 = Object.create(a1);
+            
+            console.log(a2.__proto__===a1);   //true，a1就是a2的原型（父类）
+        </script>
+    </body>
+
+</html>

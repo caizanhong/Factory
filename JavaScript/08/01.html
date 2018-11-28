@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript this</title>
+    </head>
+    <body>
+        <h2>JavaScript this</h2>
+        <input type="button" value="按钮A" id="btnA"/>
+        <input type="button" value="按钮B" id="btnB" onclick="sayHello()"/>
+        <script type="text/javascript">
+        	//绑定事件默认是执行事件this指向window
+        	//单击事件this指向的是调用当前对象的函数
+            function sayHello(){
+                alert("Hello Button!");
+                console.log(this);
+            };
+            
+            document.getElementById("btnA").onclick=sayHello;
+            
+        </script>
+    </body>
+</html>

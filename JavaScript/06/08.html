@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--各种IIFE的写法
+		-->
+		<script type="text/javascript">
+			
+			//匿名函数...如果是函数表达式，可直接在其后加（）即可立即执行
+			(function() { /* code */ }()); // 老师推荐写法
+			(function() { /* code */ })();
+			
+			
+			var i=function(){return 10;}();
+			true && function(){/*code*/}();
+			
+			
+			//如果是函数声明，可以通过（），+，-，void，new等运算符将起转换为函数表达式，然后再加（）立即执行
+			new function(){}//用new关键字最多、
+			
+			
+		</script>
+	</body>
+
+</html>

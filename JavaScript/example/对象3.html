@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//修改
+		var obj={name:"foo","age":19};
+		
+		//简单认为是：创建一个对象且继承rose
+		var lucy=Object.create(obj); 
+		lucy.name="for";
+		
+		var jack=Object.create(obj);
+        jack.name="jack";
+        
+        console.log(lucy.name);
+        console.log(jack.name);
+        
+        //删除
+        delete obj.name
+        console.log(obj.name);//输出是undefined
+	</script>
+</html>

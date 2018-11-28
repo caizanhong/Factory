@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>跨域Ajax请求</title>
+	</head>
+	<body>
+		<h2 id="message"></h2>
+		<button type="button" id="btnAjax">ajax请求</button>
+		
+		
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			$("#btnAjax").click(function(){
+				$.get("http://localhost:12833/Action/FindUserById.ashx?callback=?",{"id":1001},
+				function(data){
+					log(data);
+				},"jsonp");
+			});
+			function log(msg){
+				$("#message")[0].innerHTML+=msg+"<br/>";
+			}
+		</script>
+	</body>
+</html>

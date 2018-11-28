@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>请完成一个评分插件（minRating），支持参数与事件，可以获得评分后的值</title>
+	</head>
+
+	<body>
+		<div id="content">
+			<p class='title'>半颗星评分</p>
+			<div id="startone" class="block clearfix">
+				<div class="star_score"></div>
+				<p style="float: left;">您的评分:<span class="fraction"></span>分</p>
+				<div class="attitude"></div>
+			</div>
+			<p class='title'>1颗星评分</p>
+			<div id="starttwo" class="block clearfix">
+				<div class="star_score"></div>
+				<p style="float: left;">您的评分:<span class="fraction"></span>分</p>
+				<div class="attitude"></div>
+			</div>
+		</div>
+
+		<!--分数展示-->
+		<P class="title">分数展示</P>
+		<ul class="show_number clearfix">
+			<li>
+				<div class="atar_Show">
+					<p tip="2.5"></p>
+				</div>
+				<span></span>
+			</li>
+			<li>
+				<div class="atar_Show">
+					<p tip="3.5"></p>
+				</div>
+				<span></span>
+			</li>
+			<li>
+				<div class="atar_Show">
+					<p tip="5"></p>
+				</div>
+				<span></span>
+			</li>
+		</ul>
+	</body>
+<script >
+	scroeFun($("startone"))
+	
+</script>
+</html>

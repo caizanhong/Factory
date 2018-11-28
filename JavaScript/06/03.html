@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			函数的几个属性
+//			arguments[]   为Argument类型:一个参数数组,元素事传递给函数的参数,反对使用该属性
+//			caller:对调用当前函数的Function对象的引用,
+//			prototype:用于构造函数 这个对象定义的属性方法有构造函数创建的所有对象共享
+//			
+//			方法:aaply()将函数作为指定对象的方法来调用,传递给它指定的参数数组
+//			call() 将函数作为指定对象的方法来调用,传送给它的事指定参数
+//		
+function counter(){
+	var sum=0;
+	for(var i=0;i<arguments.length;i++){
+		sum+=arguments[i];
+	}
+	return sum;
+}
+console.log(counter(1,2,3,4,5,6));
+console.log(counter());
+
+		</script>
+	</body>
+</html>

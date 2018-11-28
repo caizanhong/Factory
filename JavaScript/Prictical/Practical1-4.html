@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>第一章ECMAScript、BOM、DOM</title>
+	</head>
+	<style type="text/css">
+		#main{
+			display: inline-block;
+			background-color: darkmagenta;
+			width: min-intrinsic;
+		}
+		 #idMsg,#nameMsg,#priceMsg{
+			color: red;
+		}
+	</style>
+	<body>
+		<div id="main">
+			<h2>商品管理</h2>
+			<div>
+				<table border="1px solid black" cellspacing="0" id="commodity">
+					<thead>
+						<tr>
+							<th><input type="checkbox" id="allSeleted" />全选
+							</th>
+							<th>商品编号</th>
+							<th>名称</th>
+							<th>价格</th>
+							<th>上货日期</th>
+							<th>是否下架</th>
+							<th>操作</th>
+						</tr>
+						
+					</thead>
+				</table>
+				<p>
+					<button type="button">批量删除</button>
+					<button type="button">新增</button>
+				</p>
+			</div>
+			<div>
+				<form>
+					<fieldset>
+						<legend>商品详情</legend>
+						<div style="width: 550px; margin-left: 200px;">
+							<p>
+								<label for="id">商品编号</label>
+								<input type="text" name="id" id="id" placeholder="请输入商品编号！" maxlength="9" />
+								<span id="idMsg">*必须是3-9位字母、下划线、数字</span>
+							</p>
+							<p>
+								<label for="name">商品名称</label>
+								<input type="text" name="name" id="name" placeholder="请输入商品名称！" maxlength="30" />
+								<span id="nameMsg">*请输入中文、字母、下划线、数字</span>
+							</p>
+							<p>
+								<label for="price">商品价格</label>
+								<input type="text" name="price" id="price" placeholder="请输入商品价格！" />
+								<span id="priceMsg">*必须1-16位正数</span>
+							</p>
+							<p>
+								<label>上货日期</label>
+								<select id="year"></select>
+								<select id="month"></select>
+								<select id="day"></select>
+								<span>*必须选择</span>
+							</p>
+							<p>
+								<label>是否下架</label>
+								<input type="radio" name="yesOrNo" id="yes" class="yes" value="是" />是
+								<input type="radio" name="yesOrNo" id="no" class="no" value="否" checked />否
+							</p>
+							<p>
+								<input type="button" id="add" value="添加" />
+								<input type="button" id="null" value="清空" />
+								<input type="button" id="btnDeles" value="修改" />
+							</p>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+	<script type="text/javascript">
+		var taskArray=new Array();
+		taskArray.push({
+			id:"1001",
+			name:"耐克",
+			price:"199.8",
+			dateTime: "2017-9-22",
+			lowerFrame: "否"
+		});
+		taskArray.push({
+			id:"1002",
+			name:"安踏",
+			price:"189",
+			dateTime: "2015-7-2",
+			lowerFrame: "否"
+		});
+		taskArray.push({
+			id:"1003",
+			name:"李宁",
+			price:"119",
+			dateTime: "2016-2-5",
+			lowerFrame: "是"
+		});
+				taskArray.push({
+			id:"1004",
+			name:"意尔康",
+			price:"1288",
+			dateTime: "2016-2-5",
+			lowerFrame: "是"
+		});
+				taskArray.push({
+			id:"1005",
+			name:"啄目鸟",
+			price:"11.11",
+			dateTime: "2016-12-7",
+			lowerFrame: "否"
+		});
+				taskArray.push({
+			id:"1006",
+			name:"鸿星尔克",
+			price:"126.9",
+			dateTime: "2014-8-20",
+			lowerFrame: "否"
+		});
+		
+		var load=function(){
+				for(var i=document.getElementById("commodity").children[0].children.length-1;i>0;i--){
+			
+				document.getElementById("commodity").children[0].removeChild(document.getElementById("commodity").children[0].children[i]);
+			}
+			for(var index in taskArray){
+				var tr=document.createElement("tr");
+				tr.setAttribute("data-index",index);
+				var td1=document.createElement("td");
+				var td2=document.createElement("td");
+				var td3=document.createElement("td");
+				var td4=document.createElement("td");
+				var td5=document.createElement("td");
+				var td6=document.createElement("td");
+				var td7=document.createElement("td");
+				var check=document.createElement("input");
+			
+				check.type="checkbox";
+				check.setAttribute("class","signCheck");
+				check.setAttribute("data-index",index);
+				td1.appendChild(check);
+				td2.innerHTML=taskArray[index].id;
+				td3.innerHTML=taskArray[index].name;
+				td4.innerHTML=taskArray[index].price;
+				td5.innerHTML=taskArray[index].dataTime;
+				td6.innerHTML=taskArray[index].lowerFrame;
+				var a1=document.createElement("a");
+				a1.innerHTML="修改 | ";
+				a1.setAttribute("class","del");
+				var a2=document.createElement("a");
+				a2.innerHTML="删除 | ";
+				a2.setAttribute("class","updateState");
+				a2.setAttribute("data-state",taskArray[index].state);
+				var a3=document.createElement("a");
+				a3.innerHTML="详细";
+				a3.setAttribute("class","edit");
+				td7.appendChild(a1);
+				td7.appendChild(a2);
+				td7.appendChild(a3);
+				
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				tr.appendChild(td4);
+				tr.appendChild(td5);
+				tr.appendChild(td6);
+				tr.appendChild(td7);
+				
+				document.getElementById("commodity").children[0].appendChild(tr);
+			};
+		};
+		load();
+	</script>
+</html>

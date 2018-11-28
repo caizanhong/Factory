@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script charset="UTF-8" type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript">
+//			var student;
+//			$.get("student.json",function(data){
+//				 student=data;
+//				 console.log(data);
+//			});
+//			alert(student);
+ 
+ 
+ function getAllStudent(){
+ 	$.get("student.json",function(data){
+ 		return data;
+ 	});
+ }
+ var student =getAllStudent();
+		</script>
+	</body>
+</html>

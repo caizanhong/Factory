@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			call调用一个对象的一个方法,以另一个对象替换当前对象
+			function student(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			show=function(add){
+				console.log(add+this.name+this.age);
+			}
+			
+			var rose=new student("rose",11);
+			var jick=new student("jick",11);
+			
+			show.call(rose,"woshi rose")
+			show.call(jick,"方法参数值");
+//			call方法中第一个参数代表在哪个对象上调用该方法   第二个参数表示方法内的参数值
+//          这里由rose对象调用show方法，输出内容
+		</script>
+	</body>
+</html>

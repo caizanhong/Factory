@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>逗号的特殊作用</title>
+	</head>
+	<body>
+		价格:<input type="text" /><span id="priceMsg"></span>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			//创建函数
+			function valid(){
+				var price=$("#price"); //定义局部变量
+				var priceMsg=$("#priceMsg");
+				var val="";
+				return(val=price.val(),isNaN(val))?(priceMsg.html("格式错误"),false):(priceMsg.html(""),true);
+			}
+			
+			//根据id给
+			$("#price").keyup(function(){
+				console.log(valid());
+			});
+		</script>
+	</body>
+</html>

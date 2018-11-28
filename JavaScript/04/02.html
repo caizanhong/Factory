@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//允许函数中嵌套函数
+			//内部函数允许调用外部函数的变量
+			//闭包就是能够读取其他函数内部变量的函数，内部函数和执行的上下文
+			 var foo=function(){
+			 	var n=1;
+			 	return function(){
+			 		n=n+1;
+			 		console.log(n);
+			 	}
+			 }   //n是一个全局变量  所以方法内部可以使用
+			var bar=foo();
+			bar();
+			bar();
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//通过原型实现继承
+			//定义父类
+			var Machine={
+				weight:111
+			};
+			//构造方法，类
+			function Car(name){
+				this.name=name;
+			}
+			//Car的原型是机器
+			Car.prototype=Machine;
+			
+			//创建对象
+			var bm=new Car("宝马");
+			var bc=new Car("奔驰");
+			console.log(bm.name);
+			console.log(bc.weight);
+			alert(typeof Object.beget);
+		</script>
+		
+	</body>
+</html>

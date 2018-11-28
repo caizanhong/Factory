@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//arguments是可变长度
+		/*function consfu(){
+			var sum=0;
+			for (var i=0; i<arguments.length; i++) {
+				sum+=arguments[i];
+			}
+			return sum;
+		}
+		//参数可以为0，也可以多个
+		console.log(consfu(199,991,1,2,3,4,5));
+		console.log(consfu());*/
+		
+		
+		
+		
+		
+		//call：调用一个对象的一个方法，以另一个对象替换当前对象
+		 /*构造函数*/
+       /*function Student(name,age){
+             this.name=name;
+             this.age=age;
+       }
+       show=function(add){
+             console.log(add+"："+this.name+"，"+this.age);
+       }
+       
+        //通过new关键字调用构造函数，创建一个对象tom
+       var rose=new Student("rose",18);
+       var jack=new Student("jack",20);
+       
+        //调用show方法，指定上下文，指定调用对象，this指向rose，“大家好”是参数
+      show.call(rose,"大家好");	//输出：大家好：rose，18
+      show.call(jack,"Hello");	//Hello：jack，20*/
+     
+     
+     
+     
+     
+     
+     //apply：应用某一对象的一个方法，用另一个对象替换当前对象，与call类似。
+     	/*function Student2(name,age){
+	         this.name=name;
+	         this.age=age;
+   		} 
+   
+       show=function(greeting,height){
+             console.log(greeting+"："+this.name+"，"+this.age+"，"+height);
+        }
+    
+    //通过new关键字调用构造函数，创建一个对象tom
+       var rose=new Student2("rose",18);
+       var jack=new Student2("jack",20);
+    
+   //调用show方法，指定上下文，指定调用对象，this指向rose，“大家好是参数”
+      show.apply(rose,["大家好","178cm"]);//大家好：rose，18，178cm
+      show.apply(jack,["Hello","188cm"]);//Hello：jack，20，188cm*/
+     
+     
+     
+     
+     
+     
+     //length
+     	/*function f1(n1,n2)
+    	{
+        	console.log("实际带入的参数个数："+arguments.length);
+    	}
+    	//命名的参数
+    	 console.log("命名参数个数："+f1.length);
+    	 //实际参数
+    	 f1(1);*/
+    	
+    	
+    	//caller
+    	/*function add(){
+    		console.log("add被调用");
+    		//add方法的调用函数，如果调用add方法的不是函数则为null
+            console.log(add.caller);
+    	}
+    	
+    	function cale(){
+    		add();
+    	}
+    	
+    	//直接调用add
+    	add();
+    	//间接调用cale方法调用，返回被调用的cale函数的全部
+    	cale();*/
+    	
+    	
+    	
+    	
+    	
+    	
+    	//Callee：当函数被调用时，它的arguments.callee对象就会指向自身，也就是一个对自己的引用
+    	function add(n1,n2){
+    		 console.log(n1+n2);
+    		 //arguments.callee(n1,n2);  //指向add方法
+    		 return arguments.callee;//如果不写，会报错
+    	}
+    	//当第1次调用add方法时输入3，立即将函数返回再次调用，每次调用后又返回自己，这样可以实现链式编程。
+    	add(1,2)(3,4)(5,6)(7,8)(8,9);
+	</script>
+</html>

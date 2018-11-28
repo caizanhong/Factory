@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			
+			//Object 和function 与pototype，__proto__,constractor之间的关系
+			
+			
+			//通过修改原型实现扩展方法，对象的prototype是不允许直接访问的，可以使用__proto访问__
+			
+			Object.prototype.o=function(){
+				alert(this);
+				console.log(this);
+			}
+			
+			var str="hello javascript";
+			str.o();
+			"Hello Prototype!".o();
+			var phone={"name":"Mi Plus5","price":999,"color":"white"};
+			phone.o();console.log(phone.__proto__);
+			console.log(phone.prototype);//对象的protorype是不允许直接访问的，可以使用__proto__访问
+		</script>
+	</body>
+</html>

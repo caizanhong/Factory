@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        <script>
+            //构造方法，类，函数
+            function Foo(name) {
+                this.name = name;
+            }
+
+            var f1 = new Foo("zhangguo");
+
+            //prototype是函数才有的属性，prototype本身就是一个对象，prototype对象中拥有constractor构造器（该构造器反向指回函数）
+            console.log(f1.prototype);  //undefined
+            console.log(Foo.prototype);  //function Foo.prototype
+            //__proto__是对象带有属性，用于访问创建对象的类型所对应的原型
+            console.log(f1.__proto__);   //function Foo.prototype
+            console.log(Foo.__proto__);  //function(){}
+            //Foo.__proto__ 就是Function.prototype
+            
+            console.log(Foo.__proto__===Function.prototype);  //true
+            console.log(Foo.prototype===f1.__proto__);  //true
+            
+            
+            //字面量创建的对象（o={}）或Object创建的对象__proto__指向Object.prototype
+            var o={};
+            console.log(o.__proto__===Object.prototype);  //true
+            var obj=new Object();
+            console.log(obj.__proto__===Object.prototype);  //true
+            var obj2=Object.create({});
+            console.log(obj2.__proto__===Object.prototype);  //false
+            
+            //            console.log(obj1.prototype);
+            //            console.log(obj1.__proto__);
+            //            console.log(Foo.prototype);
+        </script>
+    </body>
+
+</html>

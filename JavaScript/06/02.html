@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//使用对象封装的好处事可以减少全局变量的污染，将属性，函数都隶属一个对象
+			//利用闭包原理减少变量污染
+			var bar=function(){
+				var i=1;
+				return{
+					name:"bar",
+					show:function(){
+						console.log(this.name);console.log(++i);
+					}
+				};
+			};
+			var bar1=bar();
+			bar1.show();
+			bar1.show();
+			
+			var bar2=bar();
+			bar2.show();
+		</script>
+	</body>
+</html>

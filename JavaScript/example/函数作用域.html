@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//js只有函数作用域，没有块级作用域
+		function fan(){
+			for (var i=0; i<5; i++) {
+				console.log(i);//输出的是0-4
+			}
+			console.log(i);//输出的是5
+		}
+		fan();
+		
+		
+		//模拟块级作用域
+		function fac(){
+			(function(){
+				for (var i=0; i<5; i++) {
+					console.log(i);//输出的是0-4
+				}
+			})()
+			console.log(i);//报错
+		}
+		fac();
+	</script>
+</html>

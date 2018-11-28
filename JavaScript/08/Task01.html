@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			    //扩展String类型，增加trim方法用于删除字符串的首尾空格
+            String.prototype.trim=function()
+            {
+                return this.replace(/^\s+|\s+$/igm,'');
+            }
+            console.log("   hello   world   ".trim());
+		</script>
+	</body>
+</html>

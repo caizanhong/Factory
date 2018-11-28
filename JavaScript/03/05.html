@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>弹出层</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        
+        #fixed {
+            position: fixed;
+            bottom: 0;
+            left: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="test">稍等</button>
+    
+    
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/dialog.js"></script>
+
+    <script>
+        var d = dialog({
+            title: '加载中..'
+        });
+
+        d.show();
+
+        $('#test').on('click', function() {
+            d.title('你好世界');
+        });
+    </script>
+</body>
+
+</html>

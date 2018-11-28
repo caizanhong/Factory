@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		 //1、对象字面量创建对象
+         var o={name:"goodcat"};
+         
+        //2、通过Object创建对象
+        var obj=new Object();
+        obj.name="badcat";
+        
+        //构造函数，类，Cat就是一个类型
+        function Cat(name){
+        	this.name=name;
+        }
+        
+        //对象（通过构造方法创建的对象）
+        var mycat=new Cat("tom");
+        console.log(mycat.name);
+        
+        
+        //类型判断
+        console.log(mycat instanceof Cat);
+        console.log(mycat instanceof Object);
+        
+        
+        
+        
+        //通过修改原型(prototype)实现扩展方法
+        Object.prototype.o=function(){
+                console.log(this);
+        }
+        
+        //调用扩展方法
+     	var str="Hello JavaScript!";
+        str.o();
+        "Hello Prototype!".o();
+        
+        var phone={"name":"Mi Plus5","price":999,"color":"white"};
+        phone.o();
+        
+        //访问prototype
+        console.log("__proto__："+phone.__proto__);  //Object
+        //对象的prototype是不允许直接访问的，可以使用__proto__访问
+        console.log("prototype："+phone.prototype);
+        
+        
+         //对象（通过构造方法创建的对象）
+        var mycat = new Cat("tom");
+        var okcat = new Cat("ok");
+        console.log(mycat.name);
+        
+        //非标准访问
+        console.log(mycat.__proto__); 
+        
+        
+        //通过修改原型实现扩展方法，类型的prototype是可以访问的
+        Cat.prototype.show = function() {
+            console.info("这是一只叫" + this.name + "的可爱猫咪");
+        }
+
+		mycat.show();
+        okcat.show();
+        
+         //在Object的原型中添加了一个out方法
+        Object.prototype.out=function(){
+            console.log(JSON.stringify(this));
+        }
+        mycat.out();
+        okcat.out();
+	</script>
+</html>

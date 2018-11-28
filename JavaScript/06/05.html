@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+//			call调用一个对象的一个方法,以另一个对象替换当前对象
+			function student(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			show=function(greet,bye){
+				console.log(greet+this.name+this.age+bye);
+			}
+			
+			var rose=new student("rose",11);
+			var jick=new student("jick",11);
+			
+			show.apply(rose,["你好","再见"])
+			show.apply(jick,["你好","再也不见"]);
+			//apply方法可以参数输出内容
+		</script>
+	</body>
+</html>

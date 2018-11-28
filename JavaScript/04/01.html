@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>闭包</title>
+        <style type="text/css">
+            div {
+                width: 100px;
+                height: 100px;
+                background: lightgreen;
+                float: left;
+                margin: 20px;
+                font: 30px/100px "microsoft yahei";
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <script type="text/javascript">
+        	
+        	
+        	//当一个内部函数被调用时就会形成闭包，能过读取其他函数内部变量的函数叫做闭包
+            var divs=document.getElementsByTagName("div");//获取的对象长度有十个
+            for (var i=0;i<divs.length;i++) {
+                divs[i].onclick=(function(n){
+                	return function(){
+                    alert(n);
+                   }
+                })(i);
+            }
+            
+            
+            
+            //将onclick这个事件
+            //此处逻辑先获取所有的div（全局变量）   通过循环获取div的下标值
+            //此处i是一个for循环方法中的内部变量
+            //因为点击事件的函数内部使用的外部的变量i一直在变化，当我们制定click事件时并没有保存i的副本，这样也是为了提高性能，但达不到目的
+//          要让它执行上下文保存i的副本,这种机制就是闭包
+            
+            
+        </script>
+    </body>
+</html>

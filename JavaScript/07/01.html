@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//js中函数与方法的区别
+			//简单的理解如果调用时对象没有通过指定上下文则为函数，否则为方法
+			function show(){
+				console.log("这是一个函数");
+			}
+			 
+			 
+			 （function(){
+			 	console.log("函数表达式");     //快速执行函数表达式
+			 })();
+			 
+			 var obj1={
+			 	show:function(){
+			 	console.log("方法");	
+			 	}
+			 };     //方法可以作为参数传入 
+			 
+			 function obj2(){
+			 	this.show=function(){
+			 		console.log("");
+			 	}
+			 }
+			 
+			 
+		</script>
+	</body>
+</html>

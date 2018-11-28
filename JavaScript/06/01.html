@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//在JavaScript中原型也是一个对象，可以通过原型实现对象的属性继承
+			//JavaScript中对象都包含了一个Prototype内部属性，这个属性所对应的就是该对的原型
+			
+			//			prototype 作为对象的内部属性,事不能被直接访问的,所以为了方便查看对象的原型，Firefox个chrome中提供了__proto__这个非标准
+			
+			
+			//			对于函数对象,prototype属性,当一个函数被用作构造函数来创建实例时,该函数的prototype属性值将被作为原型赋值给所有对象实例
+
+			//原型关系是一种动态关系如果修改原型,该圆形创建的对象会受到影响
+
+
+			rose.show()=function(){
+				console.log(this.name);
+			}
+			var lucy=Object.create(rose);
+			lucy.name="lucy";
+			
+			var jack=Object.create(rose);
+			jack.name="jack";
+			
+			
+			lucy.show();
+			jack.show();
+		</script>
+	</body>
+</html>

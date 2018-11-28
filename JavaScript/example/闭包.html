@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+            div {
+                width: 100px;
+                height: 100px;
+                background: lightgreen;
+                float: left;
+                margin: 10px;
+                font: 30px/100px "microsoft yahei";
+                text-align: center;
+            }
+        </style>
+	</head>
+	<body>
+		<div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+	</body>
+	<script>
+		var divs=document.getElementsByTagName("div");
+		for(var i=0; i<divs.length; i++){
+			/*因为点击事件的函数内部使用外部的变量i一直在变化，当我们指定click事件时并没有保存i的副本，这样做也是为了提高性能，
+			  但达不到我们的目的，我们要让他执行的上下文保存i的副本，这种机制就是闭包。*/
+			/*divs[i].onclick=function(){
+				alert(i);
+			}*/
+			
+			//注：(function(n){})(i)，定义后完成后就马上调用；i是外部参数，n的值是i
+			divs[i].onclick=(function(n){
+				return function(){
+					alert(n+1);
+				}
+			})(i)
+		}
+		
+		
+		//真正闭包的是bar，闭包的条件如下：闭包就是能够读取其他函数内部变量的函数，定义在一个函数内部的函
+		var f1=function(){
+			var i=1;
+			var bar=function(){
+				i++;
+				return i;
+			}
+			return bar;
+		}
+		
+		var car=f1();
+		console.log(car());
+		console.log(car());
+		console.log(car());
+		
+		var car2=f1();
+		console.log(car2());
+		console.log(car2());
+		console.log(car2());
+		
+		console.log(a);
+		var a=0;
+	</script>
+</html>

@@ -1,0 +1,39 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//所有构造器/函数的__proto__都指向Function.prototype，它是一个空函数（Empty function）
+			//所有对象的__proto__都指向其构造器的prototype
+			
+			//所有的对象都有__proto__属性，该属性对应该对象的原型
+			
+			//函数对象除了__proto__属性之外 还有prototype
+			
+			
+			//对象和函数的区别：定义对象:字面量定义var obj1={} 通过构造函数：function Cat(name){}    通过Object创建对象var obj=new Object();obj.name="";   
+			//个人记对象和函数（方法）的方法是：对象是名词   函数（方法）的关键词是动词
+			
+			function Cat(nickname,color){
+				
+				//单个对象独有的属性
+				this.nickname=nickname;
+				this.color=color;
+			}
+			Cat.prototype.life=9;
+			Cat.prototype.bark=function(){
+				console.log(this.nickname,this.color,this.life);
+			}
+			var ct1=new Cat("大飞","blue");
+			ct1.bark();
+			var ct2=new Cat("小马","yellow");
+			ct2.bark();
+			
+		</script>
+		
+		
+	</body>
+</html>

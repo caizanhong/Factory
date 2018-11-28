@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--各种函数定义方式的对比-->
+		
+		<script type="text/javascript">
+		//立即执行函数表达式：在JavaScript中每个函数被调用时都会创建一个新的执行上下文
+		//因为在函数里定义的变量和函数是唯一在内部被访问的变量，而不是在外部被访问的变量，当调用函数时函数提供的上下文提供了一个非常简单的方法创建私有变量
+		
+		
+		//正常定义函数
+		function f1(){
+			console.log("我很正常");
+		};
+		//错误的定义方式
+//		function(){
+//			console.log("错误的定义方式");
+//		}();
+//		
+		//函数表达式
+		var f2=function(){
+			console.log("函数表达式");
+		};
+		
+		//快速执行函数表达式：IIFE
+		(function(){
+			console.log("快速执行函数表达式");
+		})();
+		//因为在JavaScript中括号内不能包含语句，当解析器对代码进行解释的时候，先碰到（）
+		//然后碰到function关键字就会自动将（）里面的代码识别为函数表达式而不是函数声明
+		</script>
+	</body>
+</html>
